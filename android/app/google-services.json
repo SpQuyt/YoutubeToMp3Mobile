@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "877487713596",
+    "firebase_url": "https://video-to--272302.firebaseio.com",
+    "project_id": "video-to-youtube-272302",
+    "storage_bucket": "video-to-youtube-272302.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877487713596:android:546a0b271bc4588e3b8239",
+        "android_client_info": {
+          "package_name": "com.youtubetomp3mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877487713596-q1u6hp7vhttubjc1kupvsui2isargkjf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.youtubetomp3mobile",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "877487713596-5tle8scrednje1p593jqnqkgus3bqjig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYNt2bAWvv3PI6p2XF60UqO_RltfDZtlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877487713596-5tle8scrednje1p593jqnqkgus3bqjig.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
