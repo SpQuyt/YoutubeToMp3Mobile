@@ -2,46 +2,55 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  Alert,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
-import {
-  GoogleSignin,
-  statusCodes,
-} from '@react-native-community/google-signin';
+import { connect } from 'react-redux';
+import { loginGGDispatch } from 'datalayers/actions/auth.action';
 import styles from './styles';
-import NavigationWithoutProps from '../../utils/NavigationWithoutProps';
 
 class Login extends Component {
-  async onGGSignIn() {
-    try {
-      await GoogleSignin.signIn();
-      NavigationWithoutProps.navigate('Home');
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        Alert.alert('SIGN IN FAILED');
-        // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // operation (e.g. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        Alert.alert(error);
-        // play services not available or outdated
-      } else {
-        Alert.alert(error);
-        // some other error happened
-      }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: false,
+    };
+  }
+
+  onGGSignIn = () => {
+    this.setState({ isLoading: true });
+    const { loginGGDispatch } = this.props;
+    loginGGDispatch()
+      .then(res => {
+        if (!res.success) {
+          console.log(res.error);
+        }
+        this.setState({ isLoading: false });
+      });
   }
 
   render() {
+    const { isLoading } = this.state;
     return (
       <View style={styles.screen}>
-        <TouchableOpacity onPress={this.onGGSignIn}>
-          <Text>Login Google</Text>
-        </TouchableOpacity>
+        {isLoading
+          ? <ActivityIndicator />
+          : (
+            <TouchableOpacity style={styles.button} onPress={this.onGGSignIn}>
+              <Text style={styles.buttonText}>Login Google</Text>
+            </TouchableOpacity>
+          )
+
+        }
       </View>
     );
   }
 }
 
-export default Login;
+const mapStateToProps = null;
+
+const mapDispatchToProps = {
+  loginGGDispatch,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

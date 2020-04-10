@@ -1,33 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   ActivityIndicator,
   StatusBar,
   View,
+  Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { GoogleSignin } from '@react-native-community/google-signin';
+import NavigationWithoutProps from 'utils/NavigationWithoutProps';
+import Auth from 'utils/auth';
 import styles from './styles';
-import NavigationWithoutProps from '../../utils/NavigationWithoutProps';
 
-class AuthLoading extends React.Component {
+class AuthLoading extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoadingAuth: true,
+    };
+  }
+
   componentDidMount() {
-    GoogleSignin.isSignedIn()
-      .then(isSignedIn => {
-        if (!isSignedIn) {
-          NavigationWithoutProps.navigate('Auth');
-        } else {
+    Auth.updateAuth()
+      .then(() => {
+        this.setState({ isLoadingAuth: false });
+        if (Auth.isAuth()) {
           NavigationWithoutProps.navigate('App');
+        } else {
+          NavigationWithoutProps.navigate('Auth');
         }
+      }).catch(err => {
+        Alert.alert(err);
       });
   }
 
   render() {
-    return (
-      <View style={styles.screen}>
-        <ActivityIndicator />
-        <StatusBar barStyle="default" />
-      </View>
-    );
+    const { isLoadingAuth } = this.state;
+    if (isLoadingAuth) {
+      return (
+        <View style={styles.screen}>
+          <ActivityIndicator />
+          <StatusBar barStyle="default" />
+        </View>
+      );
+    }
+    return (<View />);
   }
 }
 

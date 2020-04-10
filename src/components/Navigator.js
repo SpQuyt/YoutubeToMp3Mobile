@@ -44,7 +44,6 @@ const SwitchStack = createAppContainer(
   },
   {
     initialRouteName: 'AuthLoading',
-    headerMode: 'none',
   }),
 );
 
