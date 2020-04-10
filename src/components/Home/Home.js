@@ -1,80 +1,127 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView,
   View,
   Text,
-  Alert,
   TouchableOpacity,
-  PermissionsAndroid,
+  ActivityIndicator,
+  FlatList,
+  Keyboard,
 } from 'react-native';
 
-import RNFetchBlob from 'rn-fetch-blob';
-
-import { GoogleSignin } from '@react-native-community/google-signin';
+import Header from 'components/Common/Header';
+import { TextInput, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import Video from 'components/Home/Video';
+import { getVideosListDispatch } from 'datalayers/actions/video.action';
+import { connect } from 'react-redux';
+import { RESULTS_PER_PAGE } from 'constants/sizes';
 import styles from './styles';
-import { YOUTUBE_API } from '../../constants/links';
-import NavigationWithoutProps from '../../utils/NavigationWithoutProps';
 
+const DismissKeyboard = ({ children }) => (
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
+);
 class Home extends Component {
-  findVideo = async () => {
-    const { accessToken } = await GoogleSignin.getTokens();
-    const result = await fetch(
-      `${YOUTUBE_API.searchAPI}?part=snippet&maxResults=3&q=yasuo&key=AIzaSyCYNt2bAWvv3PI6p2XF60UqO_RltfDZtlE`,
-      {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${accessToken}`,
-        },
-      },
-    );
-    const resultJSON = await result.json();
-    console.log(resultJSON);
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: false,
+      queryString: '',
+    };
   }
 
-  requestPermission = async () => {
-    try {
-      await PermissionsAndroid.requestMultiple([
-        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-      ]);
+  componentDidMount() {
+    this.setState({ isLoading: true });
+    const { getVideosListDispatch } = this.props;
+    const queryString = '';
+    getVideosListDispatch(RESULTS_PER_PAGE, queryString)
+      .then(res => {
+        if (!res.success) {
+          console.log(res.error);
+        }
+        this.setState({ isLoading: false });
+      });
+  }
 
-      const videoID = 't3pYYI_A2vQ';
-      const { dirs } = RNFetchBlob.fs;
-
-      RNFetchBlob.config({
-        // DCIMDir is in external storage
-        path: `${dirs.DCIMDir}/${fileName}.mp3`,
-      })
-        .fetch('GET', 'http://192.168.1.84:3000/CHANAI.mp3')
-        .progress({ interval: 10 }, (received, total) => {
-          this.setState({ progress: Math.floor((received / total) * 100) });
-        })
-        .then(res => RNFetchBlob.fs.scanFile([{ path: res.path(), mime: 'audio' }]));
-    } catch (err) {
-      Alert.alert(err);
-    }
-  };
-
-  onLogOut = async () => {
-    await GoogleSignin.revokeAccess();
-    await GoogleSignin.signOut();
-    NavigationWithoutProps.navigate('Auth');
+  findVideo = () => {
+    const { queryString } = this.state;
+    const { getVideosListDispatch } = this.props;
+    this.setState({ isLoading: true });
+    Keyboard.dismiss();
+    getVideosListDispatch(RESULTS_PER_PAGE, queryString)
+      .then(res => {
+        if (!res.success) {
+          console.log(res.error);
+        }
+        this.setState({ isLoading: false });
+      });
   }
 
   render() {
+    const { isLoading, queryString } = this.state;
+    const { videosList } = this.props;
     return (
-      <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <TouchableOpacity onPress={this.requestPermission}>
-          <Text>Download</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onLogOut}>
-          <Text>Log out</Text>
-        </TouchableOpacity>
-      </View>
+      <DismissKeyboard>
+        <View>
+          <Header />
+          <View style={styles.searchBarContainer}>
+            <View style={{ flexDirection: 'row' }}>
+              <TextInput
+                style={styles.searchBar}
+                placeholder="Enter keyword here..."
+                value={queryString}
+                onChangeText={(text) => { this.setState({ queryString: text }); }}
+              />
+              <TouchableOpacity
+                onPress={() => { this.setState({ queryString: '' }); }}
+                style={styles.cancelButtonContainer}
+              >
+                <Text>X</Text>
+              </TouchableOpacity>
+            </View>
+            {isLoading
+              ? <ActivityIndicator />
+              : (
+                <TouchableOpacity
+                  style={styles.findButton}
+                  onPress={this.findVideo}
+                >
+                  <Text>Find</Text>
+                </TouchableOpacity>
+              )}
+          </View>
+          {videosList.length === 0 || videosList[0] === undefined
+            ? <View />
+            : (
+              <FlatList
+                style={styles.videoListContainer}
+                data={videosList}
+                extraData={videosList}
+                keyExtractor={(item) => item.videoId}
+                renderItem={({ item }) => (
+                  <Video
+                    title={item.title}
+                    description={item.description}
+                    thumbnail={item.thumbnail}
+                    videoId={item.videoId}
+                  />
+                )}
+                numColumns={1}
+              />
+            )
+        }
+        </View>
+      </DismissKeyboard>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  videosList: state.video.videosList,
+});
+
+const mapDispatchToProps = {
+  getVideosListDispatch,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

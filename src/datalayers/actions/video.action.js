@@ -1,5 +1,25 @@
 import { videoAction } from 'constants/actions';
+import { YOUTUBE_API } from 'constants/links';
+import Auth from 'utils/auth';
 
-export const resetTable = () => ({
-  type: videoAction.GET_VIDEO,
+export const getVideosListDispatch = (maxResults, queryString) => ({
+  type: videoAction.GET_VIDEOS_LIST,
+  promise: fetch(
+    `${YOUTUBE_API.searchAPI}?part=snippet&maxResults=${maxResults}&q=${queryString}&key=${YOUTUBE_API.apiKey}&type=video`,
+    {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${Auth.getAccessToken()}`,
+      },
+    },
+  ).then(res => res.json()),
+});
+
+export const saveVideosListDispatch = (videosList) => ({
+  type: videoAction.SAVE_VIDEOS_LIST,
+  payload: {
+    videosList,
+  },
 });
