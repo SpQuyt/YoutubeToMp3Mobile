@@ -1,6 +1,6 @@
 const baseConfig = {
-  appName: 'ee2_mobile_app',
-  storagePrefix: 'ee2-mobile-app-',
+  appName: 'youtube_to_mp3_mobile',
+  storagePrefix: 'youtube-to-mp3-mobile-',
 };
 
 export default baseConfig;

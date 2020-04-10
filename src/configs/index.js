@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import deepFreeze from 'deep-freeze';
+// @ts-ignore
 import { REACT_APP_ENV } from 'react-native-dotenv';
 
 import baseConfig from './base';

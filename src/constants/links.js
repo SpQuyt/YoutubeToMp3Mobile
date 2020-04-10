@@ -5,5 +5,12 @@ export const GOOGLE_INFO = {
 };
 
 export const YOUTUBE_API = {
+  apiKey: 'AIzaSyCYNt2bAWvv3PI6p2XF60UqO_RltfDZtlE',
   searchAPI: 'https://www.googleapis.com/youtube/v3/search',
+  baseUrl: 'https://www.youtube.com/watch?v=',
+};
+
+export const SERVER = {
+  UrlProd: 'https://zeit.co/spquyt/youtubetomp3server/bq19786ck',
+  UrlLocal: 'http://192.168.1.84:3000/',
 };
