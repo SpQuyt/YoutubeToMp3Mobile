@@ -13,6 +13,8 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+import com.rnfs.RNFSPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -27,7 +29,6 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
           @SuppressWarnings("UnnecessaryLocalVariable")
           List<ReactPackage> packages = new PackageList(this).getPackages();
-//            packages.add(new RNGoogleSigninPackage());
           return packages;
         }
 
