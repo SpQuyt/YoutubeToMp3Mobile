@@ -3,11 +3,9 @@ import {
   ActivityIndicator,
   StatusBar,
   View,
-  Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
-import NavigationWithoutProps from 'utils/NavigationWithoutProps';
-import Auth from 'utils/auth';
+import { loadAuthDispatch } from 'datalayers/actions/auth.action';
 import styles from './styles';
 
 class AuthLoading extends Component {
@@ -19,16 +17,13 @@ class AuthLoading extends Component {
   }
 
   componentDidMount() {
-    Auth.updateAuth()
-      .then(() => {
-        this.setState({ isLoadingAuth: false });
-        if (Auth.isAuth()) {
-          NavigationWithoutProps.navigate('App');
-        } else {
-          NavigationWithoutProps.navigate('Auth');
+    const { loadAuthDispatch } = this.props;
+    this.setState({ isLoadingAuth: false });
+    loadAuthDispatch()
+      .then(res => {
+        if (!res.success) {
+          console.log(`Load auth: ${res.error}`);
         }
-      }).catch(err => {
-        Alert.alert(err);
       });
   }
 
@@ -48,6 +43,8 @@ class AuthLoading extends Component {
 
 const mapStateToProps = null;
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = {
+  loadAuthDispatch,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthLoading);

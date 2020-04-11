@@ -7,7 +7,7 @@ export const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   const { payload } = action;
   switch (action.type) {
-    case videoAction.SAVE_VIDEOS_LIST: {
+    case videoAction.SAVE_VIDEOS_LIST_SUCCESS: {
       return {
         ...state,
         videosList: payload.videosList,

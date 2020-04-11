@@ -1,5 +1,4 @@
 import { authAction } from 'constants/actions';
-import Auth from 'utils/auth';
 
 export const INITIAL_STATE = {
   name: null,
@@ -11,6 +10,11 @@ export default (state = INITIAL_STATE, action) => {
   const { payload } = action;
   switch (action.type) {
     case authAction.GET_USER_SUCCESS: {
+      if (payload === undefined || !payload || payload === null) {
+        return {
+          ...state,
+        };
+      }
       return {
         ...state,
         name: payload.user.name,

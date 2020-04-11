@@ -3,9 +3,10 @@ import {
   View,
   Text,
   Image,
+  ActivityIndicator,
+  TouchableOpacity,
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { getUserDispatch, logoutGGDispatch } from 'datalayers/actions/auth.action';
+import { logoutGGDispatch } from 'datalayers/actions/auth.action';
 import { connect } from 'react-redux';
 import styles from './styles';
 
@@ -17,22 +18,12 @@ class Header extends Component {
     };
   }
 
-  componentDidMount() {
-    const { getUserDispatch } = this.props;
-    getUserDispatch()
-      .then(res => {
-        if (!res.success) {
-          console.log(res.error);
-        }
-      });
-  }
-
   onLogOut = () => {
-    const { logoutDispatch } = this.props;
-    logoutDispatch()
+    const { logoutGGDispatch } = this.props;
+    logoutGGDispatch()
       .then(res => {
         if (!res.success) {
-          console.log(res.error);
+          console.log(`Logout: ${res.error}`);
         }
       });
   }
@@ -42,16 +33,23 @@ class Header extends Component {
     const { isDropdown } = this.state;
 
     return (
-      <View
-        style={styles.container}
-      >
-        <View>
-          <Text style={styles.name}>{name === null ? name : name.toUpperCase()}</Text>
-        </View>
+      <View style={styles.container}>
+        {name === null
+          ? <ActivityIndicator />
+          : <View><Text style={styles.name}>{name}</Text></View>}
         <View style={styles.dropDownContainer}>
-          <TouchableOpacity onPress={() => this.setState({ isDropdown: !isDropdown })}>
-            <Image style={styles.avatar} source={{ uri: photo }} />
-          </TouchableOpacity>
+          {photo === null
+            ? (
+              <TouchableOpacity onPress={() => this.setState({ isDropdown: !isDropdown })}>
+                <ActivityIndicator />
+              </TouchableOpacity>
+            )
+            : (
+              <TouchableOpacity onPress={() => this.setState({ isDropdown: !isDropdown })}>
+                <Image style={styles.avatar} source={{ uri: photo }} />
+              </TouchableOpacity>
+            )
+          }
           {isDropdown ? (
             <View style={styles.dropDownMenu}>
               <TouchableOpacity onPress={this.onLogOut}>
@@ -72,7 +70,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getUserDispatch,
   logoutGGDispatch,
 };
 

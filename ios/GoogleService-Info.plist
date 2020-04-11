@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>877487713596-fomqn28cg5jvcvu6hbe14272cs614765.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.877487713596-fomqn28cg5jvcvu6hbe14272cs614765</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>877487713596-rcmq3p5inonb1e0au7g3ck325vgclf6k.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC6GyTPIBCfpWcsPWOJrMUBV8lV7F5e5s4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>877487713596</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.YTMp3</string>
+	<key>PROJECT_ID</key>
+	<string>video-to-youtube-272302</string>
+	<key>STORAGE_BUCKET</key>
+	<string>video-to-youtube-272302.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:877487713596:ios:637d1e21f8ec001b3b8239</string>
+	<key>DATABASE_URL</key>
+	<string>https://video-to--272302.firebaseio.com</string>
+</dict>
+</plist>

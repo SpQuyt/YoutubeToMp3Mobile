@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { Component } from 'react';
 import {
   View,
@@ -6,10 +7,12 @@ import {
   ActivityIndicator,
   FlatList,
   Keyboard,
+  TextInput,
+  TouchableWithoutFeedback,
 } from 'react-native';
 
+
 import Header from 'components/Common/Header';
-import { TextInput, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Video from 'components/Home/Video';
 import { getVideosListDispatch } from 'datalayers/actions/video.action';
 import { connect } from 'react-redux';
@@ -37,7 +40,7 @@ class Home extends Component {
     getVideosListDispatch(RESULTS_PER_PAGE, queryString)
       .then(res => {
         if (!res.success) {
-          console.log(res.error);
+          console.log(`Home: ${res.error}`);
         }
         this.setState({ isLoading: false });
       });
@@ -76,11 +79,15 @@ class Home extends Component {
                 onPress={() => { this.setState({ queryString: '' }); }}
                 style={styles.cancelButtonContainer}
               >
-                <Text>X</Text>
+                <Text style={styles.cancelButtonText}>X</Text>
               </TouchableOpacity>
             </View>
             {isLoading
-              ? <ActivityIndicator />
+              ? (
+                <View style={styles.findButton}>
+                  <ActivityIndicator />
+                </View>
+              )
               : (
                 <TouchableOpacity
                   style={styles.findButton}
@@ -90,25 +97,32 @@ class Home extends Component {
                 </TouchableOpacity>
               )}
           </View>
-          {videosList.length === 0 || videosList[0] === undefined
-            ? <View />
-            : (
-              <FlatList
-                style={styles.videoListContainer}
-                data={videosList}
-                extraData={videosList}
-                keyExtractor={(item) => item.videoId}
-                renderItem={({ item }) => (
-                  <Video
-                    title={item.title}
-                    description={item.description}
-                    thumbnail={item.thumbnail}
-                    videoId={item.videoId}
-                  />
-                )}
-                numColumns={1}
-              />
-            )
+          {isLoading
+            ? <ActivityIndicator />
+            : (videosList.length === 0 || videosList[0] === undefined)
+              ? (
+                <View style={styles.noVideosContainer}>
+                  <Text>No videos found.</Text>
+                </View>
+              )
+              : (
+                <FlatList
+                  style={styles.videoListContainer}
+                  data={videosList}
+                  extraData={videosList}
+                  keyExtractor={(item) => item.videoId}
+                  renderItem={({ item }) => (
+                    <Video
+                    // @ts-ignore
+                      title={item.title}
+                      description={item.description}
+                      thumbnail={item.thumbnail}
+                      videoId={item.videoId}
+                    />
+                  )}
+                  numColumns={1}
+                />
+              )
         }
         </View>
       </DismissKeyboard>
