@@ -33,18 +33,18 @@ class Home extends Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({ isLoading: true });
-    const { getVideosListDispatch } = this.props;
-    const queryString = '';
-    getVideosListDispatch(RESULTS_PER_PAGE, queryString)
-      .then(res => {
-        if (!res.success) {
-          console.log(`Home: ${res.error}`);
-        }
-        this.setState({ isLoading: false });
-      });
-  }
+  // componentDidMount() {
+  //   this.setState({ isLoading: true });
+  //   const { getVideosListDispatch } = this.props;
+  //   const queryString = '';
+  //   getVideosListDispatch(RESULTS_PER_PAGE, queryString)
+  //     .then(res => {
+  //       if (!res.success) {
+  //         console.log(`Home: ${res.error}`);
+  //       }
+  //       this.setState({ isLoading: false });
+  //     });
+  // }
 
   findVideo = () => {
     const { queryString } = this.state;
