@@ -8,12 +8,12 @@ import {
   PermissionsAndroid,
 } from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
-import ModalDownload from 'components/Home/Modal/ModalDownload';
+import ModalDownload from 'components/Home/MyYoutube/Modal/ModalDownload';
 import { connect } from 'react-redux';
 import ytdl from 'react-native-ytdl';
 import { RNFFmpeg } from 'react-native-ffmpeg';
 import RNFS from 'react-native-fs';
-import styles from './styles';
+import styles from './index.styles';
 
 class Video extends Component {
   constructor(props) {

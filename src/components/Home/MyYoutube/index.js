@@ -7,21 +7,19 @@ import {
   FlatList,
   Keyboard,
 } from 'react-native';
-
-import Header from 'components/Common/Header';
 import { TextInput, TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import Video from 'components/Home/Video';
+import Video from 'components/Home/MyYoutube/Video';
 import { getVideosListDispatch } from 'datalayers/actions/video.action';
 import { connect } from 'react-redux';
 import { RESULTS_PER_PAGE } from 'constants/sizes';
-import styles from './styles';
+import styles from './index.styles';
 
 const DismissKeyboard = ({ children }) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     {children}
   </TouchableWithoutFeedback>
 );
-class Home extends Component {
+class MyYoutube extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,16 +29,20 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.setState({ isLoading: true });
-    const { getVideosListDispatch } = this.props;
-    const queryString = '';
-    getVideosListDispatch(RESULTS_PER_PAGE, queryString)
-      .then(res => {
-        if (!res.success) {
-          console.log(res.error);
-        }
-        this.setState({ isLoading: false });
-      });
+    // this.setState({ isLoading: true });
+    // const { getVideosListDispatch } = this.props;
+    // const queryString = '';
+    // getVideosListDispatch(RESULTS_PER_PAGE, queryString)
+    //   .then(res => {
+    //     if (!res.success) {
+    //       console.log(res.error);
+    //     }
+    //     this.setState({ isLoading: false });
+    //   });
+  }
+
+  static navigationOptions = {
+    tabBarLabel: 'My Youtube',
   }
 
   findVideo = () => {
@@ -63,7 +65,6 @@ class Home extends Component {
     return (
       <DismissKeyboard>
         <View>
-          <Header />
           <View style={styles.searchBarContainer}>
             <View style={{ flexDirection: 'row' }}>
               <TextInput
@@ -124,4 +125,4 @@ const mapDispatchToProps = {
   getVideosListDispatch,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(MyYoutube);

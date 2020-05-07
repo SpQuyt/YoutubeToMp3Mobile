@@ -4,6 +4,7 @@ export const COLOR_SCREEN_BACKGROUND = 'white';
 export const COLOR_NORMAL_BUTTON = 'grey';
 export const COLOR_HEADER = '#C2C2C2'; // Light grey
 export const COLOR_DROPDOWN = '#C2C2C2';
+export const COLOR_TABBAR = 'white';
 export const COLOR_SEARCHBAR_CONTAINER = '#e7e4e4'; // Light white
 export const COLOR_BACKGROUND_VIDEO_ITEM = 'white';
 export const COLOR_YOUTUBE = '#ff0000';
