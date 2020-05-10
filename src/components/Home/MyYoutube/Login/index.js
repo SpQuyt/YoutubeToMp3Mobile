@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { loginGGDispatch } from 'datalayers/actions/auth.action';
+import Header from 'components/Common/Header';
 import styles from './index.styles';
 
 class Login extends Component {
@@ -33,15 +34,17 @@ class Login extends Component {
     const { isLoading } = this.state;
     return (
       <View style={styles.screen}>
-        {isLoading
-          ? <ActivityIndicator />
-          : (
-            <TouchableOpacity style={styles.button} onPress={this.onGGSignIn}>
-              <Text style={styles.buttonText}>Login Google</Text>
-            </TouchableOpacity>
-          )
-
+        <Header />
+        <View style={styles.innerScreen}>
+          {isLoading
+            ? <ActivityIndicator />
+            : (
+              <TouchableOpacity style={styles.button} onPress={this.onGGSignIn}>
+                <Text style={styles.buttonText}>Login Google</Text>
+              </TouchableOpacity>
+            )
         }
+        </View>
       </View>
     );
   }

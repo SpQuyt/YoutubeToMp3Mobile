@@ -5,7 +5,6 @@ import {
   Alert,
   TouchableOpacity,
   Image,
-  PermissionsAndroid,
 } from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
 import ModalDownload from 'components/Home/MyYoutube/Modal/ModalDownload';
@@ -36,29 +35,19 @@ class Video extends Component {
         },
         {
           text: 'Continue',
-          onPress: () => {
-            PermissionsAndroid.requestMultiple([
-              PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-              PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-            ])
-              .then(this.performDownload)
-              .catch(err => {
-                console.log(err);
-                Alert.alert(err);
-              });
-          },
+          onPress: () => this.performDownload,
         },
       ],
       { cancelable: true },
     );
   }
 
-  performDownload = () => {
+  performDownload = async () => {
     this.setState({ isModalDownloadVisible: true });
     const { videoId, title } = this.props;
     const { dirs } = RNFetchBlob.fs;
-    const pathNotConverted = `${dirs.DownloadDir}/${videoId}.mp3`;
-    const pathCompleted = `${dirs.DownloadDir}/${title}.mp3`;
+    const pathNotConverted = `${dirs.DocumentDir}/${videoId}.mp3`;
+    const pathCompleted = `${dirs.DocumentDir}/${title}.mp3`;
 
     RNFS.exists(pathCompleted)
       .then(isExisted => {
@@ -80,9 +69,7 @@ class Video extends Component {
             const format = ytdl.filterFormats(info.formats, 'audioonly');
 
             RNFetchBlob
-              .config({
-                path: pathNotConverted,
-              })
+              .config({ path: pathNotConverted })
               .fetch('GET', format[0].url)
               .progress({ interval: 10 }, (received, total) => {
                 console.log(`Downloading progress: ${Math.floor((received / total) * 100)}%...`);
@@ -107,9 +94,7 @@ class Video extends Component {
                     RNFetchBlob.fs.scanFile([{ path: pathCompleted, mime: 'audio' }]);
                     RNFS.unlink(pathNotConverted)
                       .then(() => {
-                        this.setState({
-                          isConverting: false,
-                        });
+                        this.setState({ isConverting: false });
                         console.log('FILE DELETED');
                       });
                   });
@@ -150,11 +135,7 @@ class Video extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  name: state.auth.name,
-  photo: state.auth.photo,
-  email: state.auth.email,
-});
+const mapStateToProps = null;
 
 const mapDispatchToProps = null;
 

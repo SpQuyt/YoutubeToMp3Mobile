@@ -9,7 +9,7 @@ const authMiddleware = () => next => (action) => {
     GoogleSignin.getTokens()
       .then(result => {
         Auth.setAuth(result.accessToken, result.idToken);
-        NavigationWithoutProps.navigate('App');
+        NavigationWithoutProps.navigate('YoutubeStack');
       }).catch(err => {
         Alert.alert(err);
       });

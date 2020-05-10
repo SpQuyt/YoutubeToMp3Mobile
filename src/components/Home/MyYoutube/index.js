@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
-  TouchableOpacity,
-  ActivityIndicator,
   FlatList,
   Keyboard,
 } from 'react-native';
-import { TextInput, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Video from 'components/Home/MyYoutube/Video';
 import { getVideosListDispatch } from 'datalayers/actions/video.action';
 import { connect } from 'react-redux';
 import { RESULTS_PER_PAGE } from 'constants/sizes';
+import SearchBar from 'components/Common/SearchBar';
 import styles from './index.styles';
 
 const DismissKeyboard = ({ children }) => (
@@ -23,8 +21,7 @@ class MyYoutube extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: false,
-      queryString: '',
+      isSearchLoading: false,
     };
   }
 
@@ -41,56 +38,29 @@ class MyYoutube extends Component {
     //   });
   }
 
-  static navigationOptions = {
-    tabBarLabel: 'My Youtube',
-  }
-
-  findVideo = () => {
-    const { queryString } = this.state;
+  findVideo = (queryString) => {
     const { getVideosListDispatch } = this.props;
-    this.setState({ isLoading: true });
+    this.setState({ isSearchLoading: true });
     Keyboard.dismiss();
     getVideosListDispatch(RESULTS_PER_PAGE, queryString)
       .then(res => {
         if (!res.success) {
           console.log(res.error);
         }
-        this.setState({ isLoading: false });
+        this.setState({ isSearchLoading: false });
       });
   }
 
   render() {
-    const { isLoading, queryString } = this.state;
+    const { isSearchLoading } = this.state;
     const { videosList } = this.props;
     return (
       <DismissKeyboard>
         <View>
-          <View style={styles.searchBarContainer}>
-            <View style={{ flexDirection: 'row' }}>
-              <TextInput
-                style={styles.searchBar}
-                placeholder="Enter keyword here..."
-                value={queryString}
-                onChangeText={(text) => { this.setState({ queryString: text }); }}
-              />
-              <TouchableOpacity
-                onPress={() => { this.setState({ queryString: '' }); }}
-                style={styles.cancelButtonContainer}
-              >
-                <Text>X</Text>
-              </TouchableOpacity>
-            </View>
-            {isLoading
-              ? <ActivityIndicator />
-              : (
-                <TouchableOpacity
-                  style={styles.findButton}
-                  onPress={this.findVideo}
-                >
-                  <Text>Find</Text>
-                </TouchableOpacity>
-              )}
-          </View>
+          <SearchBar
+            isLoading={isSearchLoading}
+            onFind={(queryString) => this.findVideo(queryString)}
+          />
           {videosList.length === 0 || videosList[0] === undefined
             ? <View />
             : (

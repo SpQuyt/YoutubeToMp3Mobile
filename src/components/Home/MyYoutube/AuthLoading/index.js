@@ -8,7 +8,7 @@ import {
 import { connect } from 'react-redux';
 import NavigationWithoutProps from 'utils/NavigationWithoutProps';
 import Auth from 'utils/auth';
-import styles from './styles';
+import styles from './index.styles';
 
 class AuthLoading extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class AuthLoading extends Component {
       .then(() => {
         this.setState({ isLoadingAuth: false });
         if (Auth.isAuth()) {
-          NavigationWithoutProps.navigate('App');
+          NavigationWithoutProps.navigate('YoutubeStack');
         } else {
           NavigationWithoutProps.navigate('Auth');
         }

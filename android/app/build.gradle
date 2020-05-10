@@ -173,10 +173,7 @@ android {
     }
 
     packagingOptions {
-        pickFirst "lib/armeabi-v7a/libc++_shared.so"
-        pickFirst "lib/arm64-v8a/libc++_shared.so"
-        pickFirst "lib/x86/libc++_shared.so"
-        pickFirst "lib/x86_64/libc++_shared.so"
+        pickFirst "**/*.so"
     }
 
     // applicationVariants are e.g. debug, release
@@ -234,7 +231,7 @@ apply plugin: 'com.google.gms.google-services'
 
 project.ext.vectoricons = [
     iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf', 'Ionicons.ttf' , 'AntDesign.ttf', 'Entypo.ttf',
-    'Feather.ttf' ] // Name of the font files you want to copy
+    'Feather.ttf', 'FontAwesome' ] // Name of the font files you want to copy
 ]
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

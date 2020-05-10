@@ -28,8 +28,8 @@ class Header extends Component {
   }
 
   onLogOut = () => {
-    const { logoutDispatch } = this.props;
-    logoutDispatch()
+    const { logoutGGDispatch } = this.props;
+    logoutGGDispatch()
       .then(res => {
         if (!res.success) {
           console.log(res.error);
@@ -45,20 +45,24 @@ class Header extends Component {
       <View
         style={styles.container}
       >
-        <View>
-          <Text style={styles.name}>{name === null ? name : name.toUpperCase()}</Text>
-        </View>
-        <View style={styles.dropDownContainer}>
-          <TouchableOpacity onPress={() => this.setState({ isDropdown: !isDropdown })}>
-            <Image style={styles.avatar} source={{ uri: photo }} />
-          </TouchableOpacity>
-          {isDropdown ? (
-            <View style={styles.dropDownMenu}>
-              <TouchableOpacity onPress={this.onLogOut}>
-                <Text style={styles.dropDownItemText}>Logout</Text>
+        {name === null
+          ? <Image style={styles.avatar} source={require('assets/logo.png')} />
+          : (
+            <View style={styles.dropDownContainer}>
+              <TouchableOpacity onPress={() => this.setState({ isDropdown: !isDropdown })}>
+                <Image style={styles.avatar} source={{ uri: photo }} />
               </TouchableOpacity>
+              {isDropdown ? (
+                <View style={styles.dropDownMenu}>
+                  <TouchableOpacity onPress={this.onLogOut}>
+                    <Text style={styles.dropDownItemText}>Logout</Text>
+                  </TouchableOpacity>
+                </View>
+              ) : null}
             </View>
-          ) : null}
+          )}
+        <View>
+          <Text style={styles.name}>{name === null ? 'YOUTUBE TO MP3' : name.toUpperCase()}</Text>
         </View>
       </View>
     );
