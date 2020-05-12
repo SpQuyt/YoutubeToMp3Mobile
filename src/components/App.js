@@ -5,7 +5,6 @@ import withProvider from 'components/HOC/withProvider';
 import HomeStack from 'components/Navigator';
 import { GOOGLE_INFO } from 'constants/links';
 import { GoogleSignin } from '@react-native-community/google-signin';
-import Header from 'components/Common/Header';
 
 console.disableYellowBox = true;
 

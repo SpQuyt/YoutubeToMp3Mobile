@@ -21,7 +21,7 @@ class MyMusic extends Component {
   render() {
     return (
       <View style={styles.screen}>
-        <TouchableOpacity style={styles.buttonContainer} onPress={() => NavigationWithoutProps.navigate('MusicList', { nameRoute: 'All songs' })}>
+        <TouchableOpacity style={styles.buttonContainer} onPress={() => NavigationWithoutProps.navigate('AllSongs')}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View style={styles.iconContainer}>
               <Ionicons name="ios-musical-notes" color="black" size={SIZE_ICON_BUTTON} />
@@ -30,7 +30,7 @@ class MyMusic extends Component {
           </View>
           <Ionicons name="ios-arrow-forward" color="black" size={SIZE_ICON_BUTTON} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonContainer} onPress={() => NavigationWithoutProps.navigate('MusicList', { nameRoute: 'On device' })}>
+        <TouchableOpacity style={styles.buttonContainer} onPress={() => NavigationWithoutProps.navigate('OnDevice')}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View style={styles.iconContainer}>
               <Entypo name="mobile" color="black" size={SIZE_ICON_BUTTON} />

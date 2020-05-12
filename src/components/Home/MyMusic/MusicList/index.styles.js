@@ -1,7 +1,7 @@
 
 import { StyleSheet } from 'react-native';
 import {
-  PADDING_MEDIUM, PADDING_HIGH, SIZE_TITLE_2, VIDEOS_LIST_HEIGHT, PADDING_SMALL,
+  PADDING_MEDIUM, SIZE_TITLE_2, VIDEOS_LIST_HEIGHT, PADDING_SMALL,
 } from 'constants/sizes';
 import {
   COLOR_TITLE, COLOR_SCREEN_BACKGROUND, COLOR_YOUTUBE,
@@ -18,10 +18,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLOR_SCREEN_BACKGROUND,
   },
+  backButtonContainer: {
+    paddingRight: PADDING_MEDIUM,
+  },
   navigationHeaderText: {
     fontSize: SIZE_TITLE_2,
     color: COLOR_TITLE,
-    marginLeft: PADDING_HIGH,
+    marginLeft: PADDING_MEDIUM,
   },
   shuffleButtonContainer: {
     flexDirection: 'row',

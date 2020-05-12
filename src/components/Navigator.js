@@ -8,7 +8,6 @@ import Login from 'components/Home/MyYoutube/Login';
 import AuthLoading from 'components/Home/MyYoutube/AuthLoading';
 import MyMusic from 'components/Home/MyMusic';
 import MyYoutube from 'components/Home/MyYoutube';
-import MusicList from 'components/Home/MyMusic/MusicList';
 import {
   SIZE_TEXT_NORMAL, SIZE_ICON_TABBAR, TABBAR_HEIGHT,
 } from 'constants/sizes';
@@ -16,6 +15,8 @@ import Header from 'components/Common/Header';
 import React from 'react';
 import { COLOR_YOUTUBE, COLOR_TABBAR } from 'constants/colors';
 import Feather from 'react-native-vector-icons/Feather';
+import AllSongs from 'components/Home/MyMusic/MusicList/AllSongs';
+import OnDevice from 'components/Home/MyMusic/MusicList/OnDevice';
 
 const SongStack = createStackNavigator({
   MyMusic: {
@@ -24,8 +25,14 @@ const SongStack = createStackNavigator({
       header: () => <Header />,
     },
   },
-  MusicList: {
-    screen: MusicList,
+  AllSongs: {
+    screen: AllSongs,
+    navigationOptions: {
+      header: () => <Header />,
+    },
+  },
+  OnDevice: {
+    screen: OnDevice,
     navigationOptions: {
       header: () => <Header />,
     },
@@ -114,7 +121,7 @@ const HomeStack = createAppContainer(
       },
       tabBarPosition: 'bottom',
       swipeEnabled: true,
-      initialRouteName: 'MyYoutube',
+      initialRouteName: 'MyMusic',
     },
   ),
 );

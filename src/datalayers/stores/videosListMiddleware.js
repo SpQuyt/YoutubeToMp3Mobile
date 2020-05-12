@@ -1,10 +1,9 @@
 import { videoAction } from 'constants/actions';
-import Auth from 'utils/auth';
 import { GoogleSignin } from '@react-native-community/google-signin';
-import NavigationWithoutProps from 'utils/NavigationWithoutProps';
 import { Alert } from 'react-native';
 import store from 'datalayers/stores';
 import { saveVideosListDispatch } from 'datalayers/actions/video.action';
+import { logoutGGDispatch } from 'datalayers/actions/auth.action';
 
 const videosListMiddleware = () => next => (action) => {
   if (action.type === videoAction.GET_VIDEOS_LIST_SUCCESS) {
@@ -14,7 +13,6 @@ const videosListMiddleware = () => next => (action) => {
         .then(() => {
           GoogleSignin.signOut()
             .then(() => {
-              Auth.deleteAuth();
               Alert.alert(
                 'Alert',
                 'Access Token is outdated! Please login again!',
@@ -22,7 +20,12 @@ const videosListMiddleware = () => next => (action) => {
                   {
                     text: 'Ok',
                     onPress: () => {
-                      NavigationWithoutProps.navigate('AuthLoading');
+                      store.dispatch(logoutGGDispatch())
+                        .then(res => {
+                          if (!res.success) {
+                            console.log(res.error);
+                          }
+                        });
                     },
                   },
                 ],

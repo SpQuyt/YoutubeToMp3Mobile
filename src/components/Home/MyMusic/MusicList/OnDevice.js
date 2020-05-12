@@ -6,7 +6,6 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
-import MusicFiles from 'react-native-get-music-files';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { connect } from 'react-redux';
@@ -14,73 +13,57 @@ import SearchBar from 'components/Common/SearchBar';
 import { SIZE_ICON_BUTTON } from 'constants/sizes';
 import NavigationWithoutProps from 'utils/NavigationWithoutProps';
 import Song from 'components/Home/MyMusic/MusicList/Song';
+import { getOnDeviceSongsDispatch } from 'datalayers/actions/song.action';
 import styles from './index.styles';
 
-class MusicList extends Component {
+class OnDevice extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: true,
       isSearchLoading: false,
-      nameRoute: '',
-      songs: [],
     };
   }
 
   componentDidMount() {
-    const { songs } = this.state;
-    const { navigation } = this.props;
-    this.setState({ nameRoute: navigation.getParam('nameRoute') });
-    // if (songs.length === 0) this.getAllMusicFiles();
-    // PermissionsAndroid.requestMultiple([
-    //   PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-    //   PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-    // ])
-    //   .then(() => )
-    //   .catch(err => {
-    //     console.log(err);
-    //     Alert.alert(err);
-    //   });
+    const {
+      getOnDeviceSongsDispatch, onDeviceSongsList,
+    } = this.props;
+    if (onDeviceSongsList.length === 0) {
+      getOnDeviceSongsDispatch()
+        .then(res => {
+          if (res.error) {
+            console.log(res);
+            this.setState({ isLoading: false });
+          }
+          this.setState({ isLoading: false });
+        });
+    } else {
+      this.setState({ isLoading: false });
+    }
   }
 
   findSong = (queryString) => {
 
   }
 
-  getAllMusicFiles = () => {
-    MusicFiles.getAll({
-      blured: true,
-      artist: true,
-      duration: true,
-      genre: true,
-      title: true,
-      cover: true,
-      minimumSongDuration: 10000,
-    })
-      .then(res => {
-        this.setState({ isLoading: false });
-        console.log(res);
-        this.setState({ songs: res });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-
   render() {
     const {
-      songs, isSearchLoading, isLoading, nameRoute,
+      isSearchLoading, isLoading,
     } = this.state;
+    const { onDeviceSongsList } = this.props;
     return (
       <View style={styles.screen}>
         <View style={styles.navigationHeaderContainer}>
-          <TouchableOpacity onPress={() => NavigationWithoutProps.back()}>
+          <TouchableOpacity
+            style={styles.backButtonContainer}
+            onPress={() => NavigationWithoutProps.back()}
+          >
             <Ionicons name="md-arrow-back" size={SIZE_ICON_BUTTON} color="black" />
           </TouchableOpacity>
           <Text style={styles.navigationHeaderText}>
-            {nameRoute}
-            {' ('}
-            {songs.length}
+            {'On device ('}
+            {onDeviceSongsList.length}
             {')'}
           </Text>
         </View>
@@ -100,8 +83,8 @@ class MusicList extends Component {
           : (
             <FlatList
               style={styles.videoListContainer}
-              data={songs}
-              extraData={songs}
+              data={onDeviceSongsList}
+              extraData={onDeviceSongsList}
               keyExtractor={(item) => item.videoId}
               renderItem={({ item }) => (
                 <Song
@@ -121,8 +104,12 @@ class MusicList extends Component {
   }
 }
 
-const mapStateToProps = null;
+const mapStateToProps = (state) => ({
+  onDeviceSongsList: state.song.onDeviceSongsList,
+});
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = {
+  getOnDeviceSongsDispatch,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MusicList);
+export default connect(mapStateToProps, mapDispatchToProps)(OnDevice);
