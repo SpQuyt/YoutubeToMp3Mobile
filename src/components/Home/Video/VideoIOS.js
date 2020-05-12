@@ -5,7 +5,6 @@ import {
   Alert,
   TouchableOpacity,
   Image,
-  PermissionsAndroid,
 } from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
 import ModalDownload from 'components/Home/Modal/ModalDownload';
@@ -15,7 +14,7 @@ import { RNFFmpeg } from 'react-native-ffmpeg';
 import RNFS from 'react-native-fs';
 import styles from './styles';
 
-class Video extends Component {
+class VideoIOS extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,17 +35,7 @@ class Video extends Component {
         },
         {
           text: 'Continue',
-          onPress: () => {
-            PermissionsAndroid.requestMultiple([
-              PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-              PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-            ])
-              .then(this.performDownload)
-              .catch(err => {
-                console.log(err);
-                Alert.alert(err);
-              });
-          },
+          onPress: this.performDownload,
         },
       ],
       { cancelable: true },
@@ -57,8 +46,10 @@ class Video extends Component {
     this.setState({ isModalDownloadVisible: true });
     const { videoId, title } = this.props;
     const { dirs } = RNFetchBlob.fs;
-    const pathNotConverted = `${dirs.DownloadDir}/${videoId}.mp3`;
-    const pathCompleted = `${dirs.DownloadDir}/${title}.mp3`;
+    const pathNotConverted = `${dirs.MainBundleDir}/${videoId}.mp3`;
+    const pathCompleted = `${dirs.MainBundleDir}/${title}.mp3`;
+
+    console.log(pathNotConverted);
 
     RNFS.exists(pathCompleted)
       .then(isExisted => {
@@ -158,4 +149,4 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = null;
 
-export default connect(mapStateToProps, mapDispatchToProps)(Video);
+export default connect(mapStateToProps, mapDispatchToProps)(VideoIOS);

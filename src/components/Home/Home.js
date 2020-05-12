@@ -9,6 +9,7 @@ import {
   Keyboard,
   TextInput,
   TouchableWithoutFeedback,
+  Platform,
 } from 'react-native';
 
 
@@ -17,6 +18,8 @@ import Video from 'components/Home/Video';
 import { getVideosListDispatch } from 'datalayers/actions/video.action';
 import { connect } from 'react-redux';
 import { RESULTS_PER_PAGE } from 'constants/sizes';
+import VideoIOS from 'components/Home/Video/VideoIOS';
+import VideoAndroid from 'components/Home/Video/VideoAndroid';
 import styles from './styles';
 
 const DismissKeyboard = ({ children }) => (
@@ -112,18 +115,30 @@ class Home extends Component {
                   extraData={videosList}
                   keyExtractor={(item) => item.videoId}
                   renderItem={({ item }) => (
-                    <Video
-                    // @ts-ignore
-                      title={item.title}
-                      description={item.description}
-                      thumbnail={item.thumbnail}
-                      videoId={item.videoId}
-                    />
+                    Platform.OS === 'ios'
+                      ? (
+                        <VideoIOS
+                          // @ts-ignore
+                          title={item.title}
+                          description={item.description}
+                          thumbnail={item.thumbnail}
+                          videoId={item.videoId}
+                        />
+                      )
+                      : (
+                        <VideoAndroid
+                          // @ts-ignore
+                          title={item.title}
+                          description={item.description}
+                          thumbnail={item.thumbnail}
+                          videoId={item.videoId}
+                        />
+                      )
                   )}
                   numColumns={1}
                 />
               )
-        }
+          }
         </View>
       </DismissKeyboard>
     );

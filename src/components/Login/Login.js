@@ -40,7 +40,6 @@ class Login extends Component {
               <Text style={styles.buttonText}>Login Google</Text>
             </TouchableOpacity>
           )
-
         }
       </View>
     );

@@ -1,3 +1,7 @@
-import Video from './Video';
+import VideoAndroid from './VideoAndroid';
+import VideoIOS from './VideoIOS';
 
-export default Video;
+
+export default {
+  VideoAndroid, VideoIOS,
+};

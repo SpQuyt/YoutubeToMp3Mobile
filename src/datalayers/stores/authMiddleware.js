@@ -14,6 +14,9 @@ const authMiddleware = () => next => (action) => {
           if (!res.success) {
             console.log(`Get user info from Auth: ${res.error}`);
             NavigationWithoutProps.navigate('Auth');
+          }
+          if (res.result === null) {
+            NavigationWithoutProps.navigate('Auth');
           } else {
             NavigationWithoutProps.navigate('App');
           }
