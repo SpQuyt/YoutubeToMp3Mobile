@@ -5,8 +5,10 @@ import {
   View,
 } from 'react-native';
 import { connect } from 'react-redux';
+import NavigationWithoutProps from 'utils/NavigationWithoutProps';
 import { loadAuthDispatch } from 'datalayers/actions/auth.action';
-import styles from './styles';
+import Auth from 'utils/auth';
+import styles from './index.styles';
 
 class AuthLoading extends Component {
   constructor(props) {
@@ -17,12 +19,13 @@ class AuthLoading extends Component {
   }
 
   componentDidMount() {
-    const { loadAuthDispatch } = this.props;
-    this.setState({ isLoadingAuth: false });
-    loadAuthDispatch()
-      .then(res => {
-        if (!res.success) {
-          console.log(`Load auth: ${res.error}`);
+    Auth.updateAuth()
+      .then(() => {
+        this.setState({ isLoadingAuth: false });
+        if (Auth.isAuth()) {
+          NavigationWithoutProps.navigate('YoutubeStack');
+        } else {
+          NavigationWithoutProps.navigate('Auth');
         }
       });
   }

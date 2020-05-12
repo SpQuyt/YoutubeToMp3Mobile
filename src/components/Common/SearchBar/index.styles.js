@@ -1,10 +1,10 @@
 
 import { StyleSheet } from 'react-native';
 import {
-  PADDING_MEDIUM, SCREEN_WIDTH, VIDEOS_LIST_HEIGHT,
-  SEARCHBAR_CONTAINER_HEIGHT, SIZE_TEXT_SEARCHBAR, PADDING_SMALL,
+  PADDING_MEDIUM, SCREEN_WIDTH,
+  VIDEOS_LIST_HEIGHT, SEARCHBAR_CONTAINER_HEIGHT, SIZE_TEXT_SEARCHBAR, PADDING_SMALL,
 } from 'constants/sizes';
-import { COLOR_SEARCHBAR_CONTAINER } from 'constants/colors';
+import { COLOR_SEARCHBAR_CONTAINER, COLOR_NORMAL_BUTTON } from 'constants/colors';
 
 const styles = StyleSheet.create({
   searchBarContainer: {
@@ -43,15 +43,12 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH * 0.15,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
+    backgroundColor: COLOR_NORMAL_BUTTON,
   },
   noVideosContainer: {
     height: VIDEOS_LIST_HEIGHT,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  videoListContainer: {
-    height: VIDEOS_LIST_HEIGHT,
   },
 });
 

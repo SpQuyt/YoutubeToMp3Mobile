@@ -5,16 +5,18 @@ import {
   Alert,
   TouchableOpacity,
   Image,
+  PermissionsAndroid,
+  Platform,
 } from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
-import ModalDownload from 'components/Home/Modal/ModalDownload';
+import ModalDownload from 'components/Home/MyYoutube/Modal/ModalDownload';
 import { connect } from 'react-redux';
 import ytdl from 'react-native-ytdl';
 import { RNFFmpeg } from 'react-native-ffmpeg';
 import RNFS from 'react-native-fs';
-import styles from './styles';
+import styles from './index.styles';
 
-class VideoIOS extends Component {
+class VideoAndroid extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,29 +29,45 @@ class VideoIOS extends Component {
   onPerformDownload = () => {
     Alert.alert(
       'Alert',
-      'Are you sure to download this .mp3 file?',
+      'Are you sure to download .mp3 file?',
       [
         {
           text: 'Cancel',
           style: 'cancel',
         },
         {
-          text: 'Continue',
-          onPress: this.performDownload,
+          text: 'OK',
+          onPress: () => {
+            const { videoId, title } = this.props;
+            const { dirs } = RNFetchBlob.fs;
+            if (Platform.OS === 'ios') {
+              const pathNotConverted = `${dirs.DocumentDir}/${videoId}.mp3`;
+              const pathCompleted = `${dirs.DocumentDir}/${title}.mp3`;
+              this.performDownload(videoId, title, pathNotConverted, pathCompleted);
+            } else if (Platform.OS === 'android') {
+              PermissionsAndroid.requestMultiple([
+                PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+                PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+              ])
+                .then(() => {
+                  const pathNotConverted = `${dirs.DownloadDir}/${videoId}.mp3`;
+                  const pathCompleted = `${dirs.DownloadDir}/${title}.mp3`;
+                  this.performDownload(videoId, title, pathNotConverted, pathCompleted);
+                })
+                .catch(err => {
+                  console.log(err);
+                  Alert.alert(err);
+                });
+            }
+          },
         },
       ],
       { cancelable: true },
     );
   }
 
-  performDownload = () => {
+  performDownload = (videoId, title, pathNotConverted, pathCompleted) => {
     this.setState({ isModalDownloadVisible: true });
-    const { videoId, title } = this.props;
-    const { dirs } = RNFetchBlob.fs;
-    const pathNotConverted = `${dirs.MainBundleDir}/${videoId}.mp3`;
-    const pathCompleted = `${dirs.MainBundleDir}/${title}.mp3`;
-
-    console.log(pathNotConverted);
 
     RNFS.exists(pathCompleted)
       .then(isExisted => {
@@ -57,7 +75,7 @@ class VideoIOS extends Component {
           this.setState({ isModalDownloadVisible: false });
           Alert.alert(
             'Alert',
-            'File already downloaded!',
+            `File already downloaded! Path is: ${pathCompleted}`,
             [
               {
                 text: 'OK',
@@ -71,9 +89,7 @@ class VideoIOS extends Component {
             const format = ytdl.filterFormats(info.formats, 'audioonly');
 
             RNFetchBlob
-              .config({
-                path: pathNotConverted,
-              })
+              .config({ path: pathNotConverted })
               .fetch('GET', format[0].url)
               .progress({ interval: 10 }, (received, total) => {
                 console.log(`Downloading progress: ${Math.floor((received / total) * 100)}%...`);
@@ -98,10 +114,8 @@ class VideoIOS extends Component {
                     RNFetchBlob.fs.scanFile([{ path: pathCompleted, mime: 'audio' }]);
                     RNFS.unlink(pathNotConverted)
                       .then(() => {
-                        this.setState({
-                          isConverting: false,
-                        });
-                        console.log('FILE DELETED');
+                        this.setState({ isConverting: false });
+                        console.log('FILE NOT CONVERTED DELETED');
                       });
                   });
               })
@@ -141,12 +155,8 @@ class VideoIOS extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  name: state.auth.name,
-  photo: state.auth.photo,
-  email: state.auth.email,
-});
+const mapStateToProps = null;
 
 const mapDispatchToProps = null;
 
-export default connect(mapStateToProps, mapDispatchToProps)(VideoIOS);
+export default connect(mapStateToProps, mapDispatchToProps)(VideoAndroid);

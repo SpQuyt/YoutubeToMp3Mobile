@@ -2,12 +2,14 @@ import { StyleSheet } from 'react-native';
 import {
   HEADER_HEIGHT, SIZE_AVATAR_SMALL, SIZE_TITLE, PADDING_SMALL, PADDING_MEDIUM, SIZE_TEXT_DROPDOWN,
 } from 'constants/sizes';
-import { COLOR_TITLE, COLOR_DROPDOWN, COLOR_YOUTUBE } from 'constants/colors';
+import {
+  COLOR_TITLE, COLOR_DROPDOWN, COLOR_YOUTUBE, COLOR_HEADER,
+} from 'constants/colors';
 
 const styles = StyleSheet.create({
   container: {
     height: HEADER_HEIGHT,
-    backgroundColor: COLOR_YOUTUBE,
+    backgroundColor: COLOR_HEADER,
     padding: PADDING_MEDIUM,
     flexDirection: 'row',
     justifyContent: 'space-between',

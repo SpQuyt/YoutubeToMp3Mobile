@@ -16,40 +16,36 @@ class ModalDownload extends Component {
     return (
       <Modal isVisible={isModalDownloadVisible}>
         <View style={styles.modal}>
-          <View style={{ flexDirection: 'row' }}>
-            <Text>
-              Downloading .mp3 file:
-              {' '}
-            </Text>
-            {progressDownload !== 100
-              ? (
-                <Text>
-                  {progressDownload}
-                  {' '}
-                  %
-                </Text>
-              )
-              : <Text>Completed!</Text>}
-          </View>
-
-          {
+          <View style={styles.textContainer}>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={styles.text}>
+                Downloading:
+                {' '}
+              </Text>
+              <Text style={styles.text}>
+                {progressDownload}
+                %
+              </Text>
+            </View>
+            {
             progressDownload !== 100
               ? <View />
               : (
                 <View style={{ flexDirection: 'row' }}>
-                  <Text>
-                    Processing this .mp3 file:
+                  <Text style={styles.text}>
+                    Processing:
                     {' '}
                   </Text>
-                  {isConverting ? <ActivityIndicator /> : <Text>Completed!</Text>}
+                  {isConverting ? <ActivityIndicator /> : <Text style={styles.text}>100%</Text>}
                 </View>
               )
           }
+          </View>
           {
             progressDownload === 100 && !isConverting
               ? (
                 <TouchableOpacity style={styles.modalConfirmButton} onPress={closeModal}>
-                  <Text>OK</Text>
+                  <Text style={styles.modalConfirmButtonText}>OK</Text>
                 </TouchableOpacity>
               )
               : <View />

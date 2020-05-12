@@ -6,9 +6,13 @@ import { COLOR_TITLE, COLOR_NORMAL_BUTTON, COLOR_SCREEN_BACKGROUND } from 'const
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: COLOR_SCREEN_BACKGROUND,
+  },
+  innerScreen: {
+    flex: 1,
+    backgroundColor: COLOR_SCREEN_BACKGROUND,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLOR_SCREEN_BACKGROUND,
   },
   button: {
     padding: PADDING_SMALL,

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NavigationWithoutProps from 'utils/NavigationWithoutProps';
 import withProvider from 'components/HOC/withProvider';
-import SwitchStack from 'components/Navigator';
+import HomeStack from 'components/Navigator';
 import { GOOGLE_INFO } from 'constants/links';
 import { GoogleSignin } from '@react-native-community/google-signin';
 
@@ -16,7 +16,7 @@ GoogleSignin.configure({
 class App extends Component {
   render() {
     return (
-      <SwitchStack ref={navigatorRef => {
+      <HomeStack ref={navigatorRef => {
         NavigationWithoutProps.setTopLevelNavigator(navigatorRef);
       }}
       />
