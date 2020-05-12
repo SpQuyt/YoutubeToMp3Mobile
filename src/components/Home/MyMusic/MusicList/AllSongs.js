@@ -5,6 +5,8 @@ import {
   FlatList,
   ActivityIndicator,
   TouchableOpacity,
+  PermissionsAndroid,
+  Platform,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -26,30 +28,35 @@ class AllSongs extends Component {
   }
 
   componentDidMount() {
-    const {
-      getAllSongsDispatch, allSongsList,
-    } = this.props;
+    const { allSongsList } = this.props;
     if (allSongsList.length === 0) {
-      getAllSongsDispatch()
-        .then(res => {
-          if (res.error) {
-            this.setState({ isLoading: false });
-            console.log(res);
-          }
-          this.setState({ isLoading: false });
-        });
+      if (Platform.OS === 'android') {
+        PermissionsAndroid.requestMultiple([
+          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        ])
+          .then(() => {
+            this.getSongsList();
+          });
+      } else {
+        this.getSongsList();
+      }
     } else {
       this.setState({ isLoading: false });
     }
-    // PermissionsAndroid.requestMultiple([
-    //   PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-    //   PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-    // ])
-    //   .then(() => )
-    //   .catch(err => {
-    //     console.log(err);
-    //     Alert.alert(err);
-    //   });
+  }
+
+  getSongsList = () => {
+    this.setState({ isLoading: true });
+    const { getAllSongsDispatch } = this.props;
+    getAllSongsDispatch()
+      .then(res => {
+        if (res.error) {
+          this.setState({ isLoading: false });
+          console.log(res);
+        }
+        this.setState({ isLoading: false });
+      });
   }
 
   findSong = (queryString) => {
@@ -80,13 +87,22 @@ class AllSongs extends Component {
           isLoading={isSearchLoading}
           onFind={(queryString) => this.findSong(queryString)}
         />
-        <TouchableOpacity
-          style={styles.shuffleButtonContainer}
-          onPress={() => {}}
-        >
-          <Text style={styles.shuffleButtonText}>Shuffle</Text>
-          <Entypo name="shuffle" size={SIZE_ICON_BUTTON} color="black" />
-        </TouchableOpacity>
+        <View style={styles.buttonsListContainer}>
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={() => {}}
+          >
+            <Text style={styles.buttonText}>Shuffle</Text>
+            <Entypo name="shuffle" size={SIZE_ICON_BUTTON} color="black" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={this.getSongsList}
+          >
+            <Text style={styles.buttonText}>Refresh</Text>
+            <Ionicons name="md-refresh" size={SIZE_ICON_BUTTON} color="black" />
+          </TouchableOpacity>
+        </View>
         {isLoading
           ? <ActivityIndicator />
           : (

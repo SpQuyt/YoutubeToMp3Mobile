@@ -15,6 +15,20 @@ export default (state = INITIAL_STATE, action) => {
       };
     }
 
+    case songAction.GET_ALL_SONGS_LIST: {
+      return {
+        ...state,
+        allSongsList: [],
+      };
+    }
+
+    case songAction.GET_ON_DEVICE_SONGS_LIST: {
+      return {
+        ...state,
+        onDeviceSongsList: [],
+      };
+    }
+
     case songAction.GET_ON_DEVICE_SONGS_LIST_SUCCESS: {
       return {
         ...state,

@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR_BACKGROUND_VIDEO_ITEM,
     padding: PADDING_SMALL,
     alignItems: 'center',
+    shadowOffset: { width: 10, height: 10 },
+    shadowColor: 'black',
+    shadowOpacity: 1.0,
   },
   cover: {
     width: SIZE_AVATAR_SMALL,

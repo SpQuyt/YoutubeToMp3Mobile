@@ -5,6 +5,8 @@ import {
   Alert,
   TouchableOpacity,
   Image,
+  PermissionsAndroid,
+  Platform,
 } from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
 import ModalDownload from 'components/Home/MyYoutube/Modal/ModalDownload';
@@ -27,27 +29,45 @@ class Video extends Component {
   onPerformDownload = () => {
     Alert.alert(
       'Alert',
-      'Are you sure to download this .mp3 file?',
+      'Are you sure to download .mp3 file?',
       [
         {
           text: 'Cancel',
           style: 'cancel',
         },
         {
-          text: 'Continue',
-          onPress: () => this.performDownload,
+          text: 'OK',
+          onPress: () => {
+            const { videoId, title } = this.props;
+            const { dirs } = RNFetchBlob.fs;
+            if (Platform.OS === 'ios') {
+              const pathNotConverted = `${dirs.DocumentDir}/${videoId}.mp3`;
+              const pathCompleted = `${dirs.DocumentDir}/${title}.mp3`;
+              this.performDownload(videoId, title, pathNotConverted, pathCompleted);
+            } else if (Platform.OS === 'android') {
+              PermissionsAndroid.requestMultiple([
+                PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+                PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+              ])
+                .then(() => {
+                  const pathNotConverted = `${dirs.DownloadDir}/${videoId}.mp3`;
+                  const pathCompleted = `${dirs.DownloadDir}/${title}.mp3`;
+                  this.performDownload(videoId, title, pathNotConverted, pathCompleted);
+                })
+                .catch(err => {
+                  console.log(err);
+                  Alert.alert(err);
+                });
+            }
+          },
         },
       ],
       { cancelable: true },
     );
   }
 
-  performDownload = async () => {
+  performDownload = (videoId, title, pathNotConverted, pathCompleted) => {
     this.setState({ isModalDownloadVisible: true });
-    const { videoId, title } = this.props;
-    const { dirs } = RNFetchBlob.fs;
-    const pathNotConverted = `${dirs.DocumentDir}/${videoId}.mp3`;
-    const pathCompleted = `${dirs.DocumentDir}/${title}.mp3`;
 
     RNFS.exists(pathCompleted)
       .then(isExisted => {
@@ -55,7 +75,7 @@ class Video extends Component {
           this.setState({ isModalDownloadVisible: false });
           Alert.alert(
             'Alert',
-            'File already downloaded!',
+            `File already downloaded! Path is: ${pathCompleted}`,
             [
               {
                 text: 'OK',
@@ -95,7 +115,7 @@ class Video extends Component {
                     RNFS.unlink(pathNotConverted)
                       .then(() => {
                         this.setState({ isConverting: false });
-                        console.log('FILE DELETED');
+                        console.log('FILE NOT CONVERTED DELETED');
                       });
                   });
               })

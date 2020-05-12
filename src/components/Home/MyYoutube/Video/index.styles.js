@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
     padding: PADDING_SMALL,
     width: SCREEN_WIDTH,
     justifyContent: 'space-between',
+    shadowOffset: { width: 10, height: 10 },
+    shadowColor: 'black',
+    shadowOpacity: 1.0,
   },
   thumbnail: {
     width: SCREEN_WIDTH * 0.5,

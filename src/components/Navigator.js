@@ -121,7 +121,7 @@ const HomeStack = createAppContainer(
       },
       tabBarPosition: 'bottom',
       swipeEnabled: true,
-      initialRouteName: 'MyMusic',
+      initialRouteName: 'MyYoutube',
     },
   ),
 );
