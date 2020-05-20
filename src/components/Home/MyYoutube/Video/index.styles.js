@@ -1,14 +1,13 @@
 import { StyleSheet } from 'react-native';
 import {
-  PADDING_SMALL, SCREEN_WIDTH,
-  SIZE_DESCRIPTION_VIDEO, SIZE_TITLE_VIDEO, PADDING_MEDIUM, SCREEN_HEIGHT,
+  PADDING_SMALL, SCREEN_WIDTH, SIZE_DESCRIPTION_VIDEO,
+  SIZE_TITLE_VIDEO, PADDING_MEDIUM, SCREEN_HEIGHT,
 } from 'constants/sizes';
-import { COLOR_BACKGROUND_VIDEO_ITEM, COLOR_SCREEN_BACKGROUND } from 'constants/colors';
+import { COLOR_SCREEN_BACKGROUND } from 'constants/colors';
 
 const styles = StyleSheet.create({
   videoContainer: {
     flexDirection: 'row',
-    backgroundColor: COLOR_BACKGROUND_VIDEO_ITEM,
     padding: PADDING_SMALL,
     width: SCREEN_WIDTH,
     justifyContent: 'space-between',

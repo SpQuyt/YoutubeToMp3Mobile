@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '9.3'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 def add_flipper_pods!
@@ -9,6 +9,9 @@ def add_flipper_pods!
   pod 'FlipperKit/FlipperKitUserDefaultsPlugin', version, :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitReactPlugin', version, :configuration => 'Debug'
 end
+
+# add pods for desired Firebase products
+# https://firebase.google.com/docs/ios/setup#available-pods
 
 # Post Install processing for Flipper
 def flipper_post_install(installer)
@@ -58,7 +61,7 @@ target 'YoutubeToMp3Mobile' do
   pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
   target 'YoutubeToMp3MobileTests' do
-    inherit! :complete
+    inherit! :search_paths
     # Pods for testing
   end
 

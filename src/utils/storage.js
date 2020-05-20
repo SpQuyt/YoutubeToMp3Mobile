@@ -11,10 +11,19 @@ export const setItem = async (key, item) => {
   if ((typeof item) !== 'string') {
     stringItem = item.toString();
   }
-  await AsyncStorage.setItem(`${configs.storagePrefix}${key}`, stringItem);
+  try {
+    await AsyncStorage.setItem(`${configs.storagePrefix}${key}`, stringItem);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const getItem = async (key) => {
-  const value = await AsyncStorage.getItem(`${configs.storagePrefix}${key}`);
-  return value;
+  try {
+    const value = await AsyncStorage.getItem(`${configs.storagePrefix}${key}`);
+    return value;
+  } catch (err) {
+    console.log(err);
+  }
+  return null;
 };

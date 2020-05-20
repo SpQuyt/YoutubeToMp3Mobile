@@ -1,4 +1,4 @@
-export const COLOR_TITLE = 'black';
+export const COLOR_TITLE = 'white';
 export const COLOR_TEXT_NORMAL = 'black';
 export const COLOR_SCREEN_BACKGROUND = 'white';
 export const COLOR_NORMAL_BUTTON = 'grey';

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* YoutubeToMp3MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* YoutubeToMp3MobileTests.m */; };
+		00F9FA7DF2EC86B01F7A5C8C /* libPods-YoutubeToMp3Mobile-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB726D72DE418F09E7BA5260 /* libPods-YoutubeToMp3Mobile-tvOS.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -16,6 +17,16 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* YoutubeToMp3MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* YoutubeToMp3MobileTests.m */; };
+		440771B0923BA2F56B7ECF85 /* libPods-YoutubeToMp3MobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B153C91CA12670ACA1870D /* libPods-YoutubeToMp3MobileTests.a */; };
+		48A9C2F8A904E0EEA7CF7DB0 /* libPods-YoutubeToMp3Mobile-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1603AF80AAC90CACEF0382 /* libPods-YoutubeToMp3Mobile-tvOSTests.a */; };
+		68321CB824416D82007648FB /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 68321CB724416D82007648FB /* GoogleSignIn.bundle */; };
+		68321CBA24416DAA007648FB /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68321CB924416DAA007648FB /* libRNGoogleSignin.a */; };
+		68321CBC24416DC0007648FB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68321CBB24416DC0007648FB /* AddressBook.framework */; };
+		68321CBE24416DC7007648FB /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68321CBD24416DC7007648FB /* SafariServices.framework */; };
+		68321CC024416DDA007648FB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68321CBF24416DDA007648FB /* SystemConfiguration.framework */; };
+		68321CC224416DE5007648FB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68321CC124416DE5007648FB /* libz.tbd */; };
+		68321CC624417F1C007648FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68321CC524417F1C007648FB /* GoogleService-Info.plist */; };
+		EB9924266A3E6242BF1F7A07 /* libPods-YoutubeToMp3Mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F05001A0FA623687326F16BD /* libPods-YoutubeToMp3Mobile.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,17 +51,38 @@
 		00E356EE1AD99517003FC87E /* YoutubeToMp3MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoutubeToMp3MobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* YoutubeToMp3MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YoutubeToMp3MobileTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* YoutubeToMp3Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeToMp3Mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* YTMp3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTMp3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = YoutubeToMp3Mobile/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = YoutubeToMp3Mobile/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = YoutubeToMp3Mobile/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = YoutubeToMp3Mobile/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = YoutubeToMp3Mobile/main.m; sourceTree = "<group>"; };
+		1697585107BE91659D266625 /* Pods-YoutubeToMp3MobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeToMp3MobileTests.release.xcconfig"; path = "Target Support Files/Pods-YoutubeToMp3MobileTests/Pods-YoutubeToMp3MobileTests.release.xcconfig"; sourceTree = "<group>"; };
+		23B153C91CA12670ACA1870D /* libPods-YoutubeToMp3MobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoutubeToMp3MobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25BFC347D201446CD5932FB6 /* Pods-YoutubeToMp3Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeToMp3Mobile.debug.xcconfig"; path = "Target Support Files/Pods-YoutubeToMp3Mobile/Pods-YoutubeToMp3Mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		2BFE1ADC2223A2635DB34830 /* Pods-YoutubeToMp3Mobile-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeToMp3Mobile-tvOS.release.xcconfig"; path = "Target Support Files/Pods-YoutubeToMp3Mobile-tvOS/Pods-YoutubeToMp3Mobile-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* YoutubeToMp3Mobile-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YoutubeToMp3Mobile-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* YoutubeToMp3Mobile-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YoutubeToMp3Mobile-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3270F7C44680F9F40DB5476D /* Pods-YoutubeToMp3Mobile-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeToMp3Mobile-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-YoutubeToMp3Mobile-tvOSTests/Pods-YoutubeToMp3Mobile-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		68321CB724416D82007648FB /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
+		68321CB924416DAA007648FB /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		68321CBB24416DC0007648FB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		68321CBD24416DC7007648FB /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		68321CBF24416DDA007648FB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		68321CC124416DE5007648FB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		68321CC524417F1C007648FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BB726D72DE418F09E7BA5260 /* libPods-YoutubeToMp3Mobile-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoutubeToMp3Mobile-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1FD4FB899E4261478E68220 /* Pods-YoutubeToMp3Mobile-YoutubeToMp3MobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeToMp3Mobile-YoutubeToMp3MobileTests.debug.xcconfig"; path = "Target Support Files/Pods-YoutubeToMp3Mobile-YoutubeToMp3MobileTests/Pods-YoutubeToMp3Mobile-YoutubeToMp3MobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D56F7DE42329D0F01056087D /* Pods-YoutubeToMp3Mobile-YoutubeToMp3MobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeToMp3Mobile-YoutubeToMp3MobileTests.release.xcconfig"; path = "Target Support Files/Pods-YoutubeToMp3Mobile-YoutubeToMp3MobileTests/Pods-YoutubeToMp3Mobile-YoutubeToMp3MobileTests.release.xcconfig"; sourceTree = "<group>"; };
+		D6D08DCF0A9CA57B487A6EFB /* Pods-YoutubeToMp3Mobile-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeToMp3Mobile-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-YoutubeToMp3Mobile-tvOS/Pods-YoutubeToMp3Mobile-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		DA1603AF80AAC90CACEF0382 /* libPods-YoutubeToMp3Mobile-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoutubeToMp3Mobile-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDAF5892EFB539A1ED7ABF89 /* Pods-YoutubeToMp3MobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeToMp3MobileTests.debug.xcconfig"; path = "Target Support Files/Pods-YoutubeToMp3MobileTests/Pods-YoutubeToMp3MobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EB3EE77CC6D99DEC97CFD9B2 /* Pods-YoutubeToMp3Mobile-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeToMp3Mobile-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-YoutubeToMp3Mobile-tvOSTests/Pods-YoutubeToMp3Mobile-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F05001A0FA623687326F16BD /* libPods-YoutubeToMp3Mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoutubeToMp3Mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1FD11A5341F1101EEB39A69 /* Pods-YoutubeToMp3Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeToMp3Mobile.release.xcconfig"; path = "Target Support Files/Pods-YoutubeToMp3Mobile/Pods-YoutubeToMp3Mobile.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440771B0923BA2F56B7ECF85 /* libPods-YoutubeToMp3MobileTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +98,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68321CC224416DE5007648FB /* libz.tbd in Frameworks */,
+				68321CC024416DDA007648FB /* SystemConfiguration.framework in Frameworks */,
+				68321CBE24416DC7007648FB /* SafariServices.framework in Frameworks */,
+				68321CBC24416DC0007648FB /* AddressBook.framework in Frameworks */,
+				68321CBA24416DAA007648FB /* libRNGoogleSignin.a in Frameworks */,
+				EB9924266A3E6242BF1F7A07 /* libPods-YoutubeToMp3Mobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F9FA7DF2EC86B01F7A5C8C /* libPods-YoutubeToMp3Mobile-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A9C2F8A904E0EEA7CF7DB0 /* libPods-YoutubeToMp3Mobile-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +146,8 @@
 		13B07FAE1A68108700A75B9A /* YoutubeToMp3Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				68321CC524417F1C007648FB /* GoogleService-Info.plist */,
+				68321CB724416D82007648FB /* GoogleSignIn.bundle */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -119,10 +162,36 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68321CC124416DE5007648FB /* libz.tbd */,
+				68321CBF24416DDA007648FB /* SystemConfiguration.framework */,
+				68321CBD24416DC7007648FB /* SafariServices.framework */,
+				68321CBB24416DC0007648FB /* AddressBook.framework */,
+				68321CB924416DAA007648FB /* libRNGoogleSignin.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
+				F05001A0FA623687326F16BD /* libPods-YoutubeToMp3Mobile.a */,
+				BB726D72DE418F09E7BA5260 /* libPods-YoutubeToMp3Mobile-tvOS.a */,
+				DA1603AF80AAC90CACEF0382 /* libPods-YoutubeToMp3Mobile-tvOSTests.a */,
+				23B153C91CA12670ACA1870D /* libPods-YoutubeToMp3MobileTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3881DD4C35206183195D1A8A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25BFC347D201446CD5932FB6 /* Pods-YoutubeToMp3Mobile.debug.xcconfig */,
+				F1FD11A5341F1101EEB39A69 /* Pods-YoutubeToMp3Mobile.release.xcconfig */,
+				C1FD4FB899E4261478E68220 /* Pods-YoutubeToMp3Mobile-YoutubeToMp3MobileTests.debug.xcconfig */,
+				D56F7DE42329D0F01056087D /* Pods-YoutubeToMp3Mobile-YoutubeToMp3MobileTests.release.xcconfig */,
+				D6D08DCF0A9CA57B487A6EFB /* Pods-YoutubeToMp3Mobile-tvOS.debug.xcconfig */,
+				2BFE1ADC2223A2635DB34830 /* Pods-YoutubeToMp3Mobile-tvOS.release.xcconfig */,
+				3270F7C44680F9F40DB5476D /* Pods-YoutubeToMp3Mobile-tvOSTests.debug.xcconfig */,
+				EB3EE77CC6D99DEC97CFD9B2 /* Pods-YoutubeToMp3Mobile-tvOSTests.release.xcconfig */,
+				DDAF5892EFB539A1ED7ABF89 /* Pods-YoutubeToMp3MobileTests.debug.xcconfig */,
+				1697585107BE91659D266625 /* Pods-YoutubeToMp3MobileTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -140,6 +209,7 @@
 				00E356EF1AD99517003FC87E /* YoutubeToMp3MobileTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				3881DD4C35206183195D1A8A /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -149,7 +219,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* YoutubeToMp3Mobile.app */,
+				13B07F961A680F5B00A75B9A /* YTMp3.app */,
 				00E356EE1AD99517003FC87E /* YoutubeToMp3MobileTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* YoutubeToMp3Mobile-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* YoutubeToMp3Mobile-tvOSTests.xctest */,
@@ -164,6 +234,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "YoutubeToMp3MobileTests" */;
 			buildPhases = (
+				4FBE45FBF811AC30B967B4D0 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -182,11 +253,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "YoutubeToMp3Mobile" */;
 			buildPhases = (
+				628E1A9653755A2A643BB482 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				022808EEACA7FBACB8A1E682 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,13 +267,14 @@
 			);
 			name = YoutubeToMp3Mobile;
 			productName = YoutubeToMp3Mobile;
-			productReference = 13B07F961A680F5B00A75B9A /* YoutubeToMp3Mobile.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* YTMp3.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* YoutubeToMp3Mobile-tvOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "YoutubeToMp3Mobile-tvOS" */;
 			buildPhases = (
+				A2C2F65496FAF8F754B29875 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -220,6 +294,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "YoutubeToMp3Mobile-tvOSTests" */;
 			buildPhases = (
+				800E367AF5B022EE9F870F20 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -247,6 +322,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 9M84NL46T2;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -294,6 +370,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				68321CC624417F1C007648FB /* GoogleService-Info.plist in Resources */,
+				68321CB824416D82007648FB /* GoogleSignIn.bundle in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +408,56 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		022808EEACA7FBACB8A1E682 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YoutubeToMp3Mobile/Pods-YoutubeToMp3Mobile-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YoutubeToMp3Mobile/Pods-YoutubeToMp3Mobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +471,94 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		4FBE45FBF811AC30B967B4D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YoutubeToMp3MobileTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		628E1A9653755A2A643BB482 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YoutubeToMp3Mobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		800E367AF5B022EE9F870F20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YoutubeToMp3Mobile-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2C2F65496FAF8F754B29875 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YoutubeToMp3Mobile-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -449,6 +665,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDAF5892EFB539A1ED7ABF89 /* Pods-YoutubeToMp3MobileTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -471,6 +688,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1697585107BE91659D266625 /* Pods-YoutubeToMp3MobileTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -490,16 +708,19 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25BFC347D201446CD5932FB6 /* Pods-YoutubeToMp3Mobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9M84NL46T2;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
 				INFOPLIST_FILE = YoutubeToMp3Mobile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -507,7 +728,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = YoutubeToMp3Mobile;
+				PRODUCT_NAME = YTMp3;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -516,11 +737,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1FD11A5341F1101EEB39A69 /* Pods-YoutubeToMp3Mobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9M84NL46T2;
 				INFOPLIST_FILE = YoutubeToMp3Mobile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -528,7 +752,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = YoutubeToMp3Mobile;
+				PRODUCT_NAME = YTMp3;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -536,6 +760,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6D08DCF0A9CA57B487A6EFB /* Pods-YoutubeToMp3Mobile-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -563,6 +788,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BFE1ADC2223A2635DB34830 /* Pods-YoutubeToMp3Mobile-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -590,6 +816,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3270F7C44680F9F40DB5476D /* Pods-YoutubeToMp3Mobile-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -616,6 +843,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB3EE77CC6D99DEC97CFD9B2 /* Pods-YoutubeToMp3Mobile-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

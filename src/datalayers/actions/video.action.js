@@ -14,7 +14,7 @@ export const getVideosListDispatch = (maxResults, queryString) => ({
         Authorization: `Bearer ${Auth.getAccessToken()}`,
       },
     },
-  ).then(res => res.json()),
+  ),
 });
 
 export const saveVideosListDispatch = (videosList) => ({

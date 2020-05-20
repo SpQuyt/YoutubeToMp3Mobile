@@ -1,5 +1,6 @@
 import { authAction } from 'constants/actions';
 import { GoogleSignin } from '@react-native-community/google-signin';
+import Auth from 'utils/auth';
 
 export const loginGGDispatch = () => ({
   type: authAction.ON_LOGIN_GG,
@@ -8,6 +9,7 @@ export const loginGGDispatch = () => ({
 
 export const loadAuthDispatch = () => ({
   type: authAction.LOAD_AUTH,
+  promise: Auth.updateAuth(),
 });
 
 export const getUserDispatch = () => ({
@@ -17,5 +19,5 @@ export const getUserDispatch = () => ({
 
 export const logoutGGDispatch = () => ({
   type: authAction.ON_LOGOUT_GG,
-  promise: GoogleSignin.revokeAccess(),
+  promise: GoogleSignin.signOut(),
 });
