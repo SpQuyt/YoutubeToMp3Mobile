@@ -1,10 +1,10 @@
 
 import { StyleSheet } from 'react-native';
 import {
-  PADDING_MEDIUM, SIZE_TITLE_2, VIDEOS_LIST_HEIGHT, PADDING_SMALL, SCREEN_WIDTH,
+  PADDING_MEDIUM, VIDEOS_LIST_HEIGHT, PADDING_SMALL, SCREEN_WIDTH, SIZE_TITLE,
 } from 'constants/sizes';
 import {
-  COLOR_TITLE, COLOR_SCREEN_BACKGROUND, COLOR_YOUTUBE,
+  COLOR_SCREEN_BACKGROUND, COLOR_YOUTUBE, COLOR_TEXT_NORMAL,
 } from 'constants/colors';
 
 const styles = StyleSheet.create({
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   navigationHeaderText: {
-    fontSize: SIZE_TITLE_2,
-    color: COLOR_TITLE,
+    fontSize: SIZE_TITLE,
+    color: COLOR_TEXT_NORMAL,
     marginLeft: PADDING_MEDIUM,
   },
   buttonContainer: {
@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: SIZE_TITLE_2,
-    color: COLOR_TITLE,
+    fontSize: SIZE_TITLE,
+    color: COLOR_TEXT_NORMAL,
     marginRight: PADDING_SMALL,
   },
   videoListContainer: {

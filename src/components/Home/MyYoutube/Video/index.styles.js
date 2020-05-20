@@ -3,7 +3,7 @@ import {
   PADDING_SMALL, SCREEN_WIDTH, SIZE_DESCRIPTION_VIDEO,
   SIZE_TITLE_VIDEO, PADDING_MEDIUM, SCREEN_HEIGHT,
 } from 'constants/sizes';
-import { COLOR_SCREEN_BACKGROUND } from 'constants/colors';
+import { COLOR_SCREEN_BACKGROUND, COLOR_BACKGROUND_VIDEO_ITEM } from 'constants/colors';
 
 const styles = StyleSheet.create({
   videoContainer: {
@@ -11,9 +11,7 @@ const styles = StyleSheet.create({
     padding: PADDING_SMALL,
     width: SCREEN_WIDTH,
     justifyContent: 'space-between',
-    shadowOffset: { width: 10, height: 10 },
-    shadowColor: 'black',
-    shadowOpacity: 1.0,
+    backgroundColor: COLOR_BACKGROUND_VIDEO_ITEM,
   },
   thumbnail: {
     width: SCREEN_WIDTH * 0.5,

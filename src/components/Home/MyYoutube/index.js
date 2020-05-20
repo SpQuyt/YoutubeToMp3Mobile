@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Video from 'components/Home/MyYoutube/Video';
-import { getVideosListDispatch } from 'datalayers/actions/video.action';
+import { getVideosListDispatch, saveVideosListDispatch } from 'datalayers/actions/video.action';
 import { connect } from 'react-redux';
 import { RESULTS_PER_PAGE } from 'constants/sizes';
 import SearchBar from 'components/Common/SearchBar';
@@ -26,16 +26,16 @@ class MyYoutube extends Component {
   }
 
   componentDidMount() {
-    // this.setState({ isLoading: true });
-    // const { getVideosListDispatch } = this.props;
-    // const queryString = '';
-    // getVideosListDispatch(RESULTS_PER_PAGE, queryString)
-    //   .then(res => {
-    //     if (!res.success) {
-    //       console.log(res.error);
-    //     }
-    //     this.setState({ isLoading: false });
-    //   });
+    this.setState({ isSearchLoading: true });
+    const { getVideosListDispatch } = this.props;
+    const queryString = '';
+    getVideosListDispatch(RESULTS_PER_PAGE, queryString)
+      .then(res => {
+        if (!res.success) {
+          console.log(res.error);
+        }
+        this.setState({ isSearchLoading: false });
+      });
   }
 
   findVideo = (queryString) => {
@@ -93,6 +93,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getVideosListDispatch,
+  saveVideosListDispatch,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyYoutube);

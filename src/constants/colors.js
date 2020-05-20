@@ -2,6 +2,7 @@ export const COLOR_TITLE = 'white';
 export const COLOR_TEXT_NORMAL = 'black';
 export const COLOR_SCREEN_BACKGROUND = 'white';
 export const COLOR_NORMAL_BUTTON = 'grey';
+export const COLOR_BORDER_AVATAR = 'black';
 export const COLOR_HEADER = '#C2C2C2'; // Light grey
 export const COLOR_DROPDOWN = '#C2C2C2';
 export const COLOR_TABBAR = 'white';

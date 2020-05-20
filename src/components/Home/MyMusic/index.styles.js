@@ -1,10 +1,10 @@
 
 import { StyleSheet } from 'react-native';
 import {
-  PADDING_MEDIUM, SIZE_TITLE_2,
+  PADDING_MEDIUM, SIZE_TITLE_2, SIZE_TITLE,
 } from 'constants/sizes';
 import {
-  COLOR_TITLE, COLOR_SCREEN_BACKGROUND,
+  COLOR_SCREEN_BACKGROUND, COLOR_TEXT_NORMAL,
 } from 'constants/colors';
 
 const styles = StyleSheet.create({
@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   buttonText: {
-    fontSize: SIZE_TITLE_2,
-    color: COLOR_TITLE,
+    fontSize: SIZE_TITLE,
+    color: COLOR_TEXT_NORMAL,
   },
   iconContainer: {
     borderWidth: 1,

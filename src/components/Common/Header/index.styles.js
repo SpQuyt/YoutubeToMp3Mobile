@@ -2,7 +2,9 @@ import { StyleSheet } from 'react-native';
 import {
   HEADER_HEIGHT, SIZE_AVATAR_SMALL, SIZE_TITLE, PADDING_SMALL, PADDING_MEDIUM, SIZE_TEXT_DROPDOWN,
 } from 'constants/sizes';
-import { COLOR_TITLE, COLOR_DROPDOWN, COLOR_YOUTUBE } from 'constants/colors';
+import {
+  COLOR_TITLE, COLOR_DROPDOWN, COLOR_YOUTUBE, COLOR_BORDER_AVATAR,
+} from 'constants/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,10 +25,11 @@ const styles = StyleSheet.create({
     height: SIZE_AVATAR_SMALL,
     width: SIZE_AVATAR_SMALL,
     borderRadius: SIZE_AVATAR_SMALL / 2,
-    borderColor: COLOR_YOUTUBE,
+    borderColor: COLOR_BORDER_AVATAR,
+    borderWidth: 1,
   },
   dropDownContainer: {
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     width: SIZE_AVATAR_SMALL + PADDING_MEDIUM,
   },
   dropDownMenu: {
