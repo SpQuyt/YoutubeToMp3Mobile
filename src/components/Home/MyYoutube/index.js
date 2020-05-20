@@ -45,7 +45,7 @@ class MyYoutube extends Component {
     getVideosListDispatch(RESULTS_PER_PAGE, queryString)
       .then(res => {
         if (!res.success) {
-          console.log(res.error);
+          console.log(`Get videos list err: ${res.error}`);
         }
         this.setState({ isSearchLoading: false });
       });

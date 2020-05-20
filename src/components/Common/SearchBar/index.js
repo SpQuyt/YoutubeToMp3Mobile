@@ -17,10 +17,6 @@ class SearchBar extends Component {
     };
   }
 
-  findSong = () => {
-
-  }
-
   render() {
     const { isLoading, onFind } = this.props;
     const { queryString } = this.state;
