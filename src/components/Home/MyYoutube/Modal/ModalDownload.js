@@ -16,7 +16,7 @@ class ModalDownload extends Component {
     return (
       <Modal isVisible={isModalDownloadVisible}>
         <View style={styles.modal}>
-          <View style={styles.textContainer}>
+          <View>
             <View style={{ flexDirection: 'row' }}>
               <Text style={styles.text}>
                 Downloading:

@@ -1,9 +1,11 @@
 import { StyleSheet } from 'react-native';
 import {
   PADDING_SMALL, SCREEN_WIDTH, SCREEN_HEIGHT,
-  PADDING_MEDIUM, PADDING_HIGH, SIZE_TITLE, SIZE_TITLE_2,
+  PADDING_MEDIUM, PADDING_HIGH, SIZE_TITLE,
 } from 'constants/sizes';
-import { COLOR_SCREEN_BACKGROUND, COLOR_YOUTUBE, COLOR_TITLE } from 'constants/colors';
+import {
+  COLOR_SCREEN_BACKGROUND, COLOR_YOUTUBE, COLOR_TEXT_NORMAL,
+} from 'constants/colors';
 
 const styles = StyleSheet.create({
   modal: {
@@ -25,12 +27,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
-  textContainer: {
-
-  },
   text: {
-    fontSize: SIZE_TITLE_2,
-    color: COLOR_TITLE,
+    fontSize: SIZE_TITLE,
+    color: COLOR_TEXT_NORMAL,
     marginVertical: PADDING_MEDIUM,
   },
 });

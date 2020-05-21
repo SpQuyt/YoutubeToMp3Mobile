@@ -9,3 +9,4 @@ export const COLOR_TABBAR = 'white';
 export const COLOR_SEARCHBAR_CONTAINER = '#e7e4e4'; // Light white
 export const COLOR_BACKGROUND_VIDEO_ITEM = 'white';
 export const COLOR_YOUTUBE = '#ff0000';
+export const SHADOW_COLOR = '#5d3f6a';
